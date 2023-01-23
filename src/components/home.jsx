@@ -1,36 +1,31 @@
 import React, { createContext, useContext, useRef, useState } from 'react'
 import foodDta from './data'
 import {IoIosAddCircle, IoIosAddCircleOutline} from 'react-icons/io'
-import { cartContext } from './store'
-import { cartAddContext } from './store'
-import CartPage from '../pages/cart'
-const Home = ({ categories,isRendering,setIsRendering, cart,setCart }) => {
-    // const {cart, setCart} = useContext(cartContext);
+import { useSelector, useDispatch } from 'react-redux'
+import { addItem } from './cartSlice'
+import store from './store'
+
+
+const Home = ({ categories }) => {
+    const [dispatchItem, setDispatchItem] = useState();
+    const dispatch = useDispatch();
     const abc = (item) =>{
-        setIsRendering(!isRendering)
-        setCart({
-            id: item.id,
-            Food: item.Food,
-            type: item.type,
-            image: item.image,
-            price: item.price
-            })
+        dispatch(addItem(item));
     }
-    // console.log()
     return (
         <div className='home'>
             <h1><u>Our Menu</u></h1>
             <br />
             {categories.map((category) => {
                 return (
-                    <div id={category} >
+                    <div id={category} key={category.type}>
                         <h4  style={{ "textAlign": "left"}}>{category}</h4>
                         <br />
                         <div className='align-cards'>
                             {foodDta.map((item) => {
                                 if (category == item.type) {
                                     return (
-                                        <div className='cards'>
+                                        <div className='cards' key={item.id}>
                                             <div className="home-image">
                                                 <div className='productImages'>
                                                     <img src={item.image} />

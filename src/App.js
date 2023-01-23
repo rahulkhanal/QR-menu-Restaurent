@@ -6,27 +6,22 @@ import qrimg from '../src/pages/qr.png'
 import { useState } from 'react';
 import logo from '../src/pages/logopng.png'
 import './App.css'
+import store from './components/store';
+import { Provider } from 'react-redux';
 
 function App() {
-  const[isRendering,setIsRendering]=useState(false)
-  const [cart, setCart] = useState({
-    id: 0,
-    Food: "",
-    type: "",
-    image: "",
-    price: "",
-  });
-  // console.log(cart)
+
   return (
     <>
-      
+    {/* <Provider store = {store}> */}
       <BrowserRouter>
           <Routes>
-              <Route path="/" element={<HomePage isRendering={isRendering} cart={cart} setIsRendering={setIsRendering} setCart={setCart}/>}/>
-              <Route path='/cart'  element={<CartPage {...cart} isRendering={isRendering}/>} />
+              <Route path="/" element={<HomePage/>}/>
+              <Route path="/cart"  element={<CartPage/>} />
           </Routes>
       </BrowserRouter>
-
+      {/* </Provider> */}
+      {/* <CartPage cart={cart} isRendering={isRendering}/> */}
     <section className='max-size'>
         <img src={logo} className="logo"/>
         <h1>Please scan the following QR code<br />to get menu</h1>

@@ -1,6 +1,10 @@
-import { createContext } from "react";
+import cartSlice from "./cartSlice";
+import { configureStore } from "@reduxjs/toolkit";
 
-const cartContext = createContext();
-const cartAddContext = createContext();
+const store = configureStore({
+    reducer:{
+        cart: cartSlice
+    }
+})
 
-export {cartAddContext, cartContext}
+export default store;

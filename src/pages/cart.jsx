@@ -5,18 +5,25 @@ import { Link } from 'react-router-dom';
 import { IoChevronBackCircleSharp } from 'react-icons/io5'
 import { AiFillDelete, AiFillMinusCircle } from 'react-icons/ai'
 import { IoIosAddCircle } from 'react-icons/io'
+import { useDispatch } from 'react-redux';
+import { deleteItem } from '../components/cartSlice';
 // import { addItem } from '../components/cartSlice';
 
 const CartPage = () => {
   const data = useSelector((state) => state.cart);
-  console.log(data);
+  const dispatch = useDispatch();
 
-  const [qty, setQty] = useState()
-  function addQtyINcart(abc){
-    setQty(abc);
+  const [qty, setQty] = useState(6)
+
+  function handlePlus(){
   }
-  function rmQtyINcart(abc){
-    setQty(abc)
+  function handleMinus(abc){
+    // abc = abc+1;
+    // setQty(abc)
+  }
+  function deletefromMenu(id){
+    dispatch(deleteItem(id));
+    // data.CartTotalQuantity=0;
   }
   return (
     <div className='cart-menu'>
@@ -29,13 +36,7 @@ const CartPage = () => {
         <hr />
         {data.cartItem.map((item) => {
           let qtty = item.cartQuantity;
-          const handelPlus =()=>{
-            qtty=qtty+1;
-            setQty(qtty);
-          }
-          const handelMinus =()=>{
-            setQty(qtty);
-          }
+          // setQty(qtty)
           return (
           <table>
             <tr id={item.id} className='cart-bill'>
@@ -45,14 +46,14 @@ const CartPage = () => {
               </td>
             <td className='Qty'>
                 <p>{`Qty: ${qty}`}</p>
-                < IoIosAddCircle size={25} onClick={handelPlus}/>
-                < AiFillMinusCircle size={25} onClick={handelMinus}/>
+                < IoIosAddCircle size={25} color='green' onClick={()=>handlePlus(item.cartQuantity)}/>
+                < AiFillMinusCircle size={25} color='green' onClick={()=>handleMinus}/>
               </td>
               <td className='price'>
                 <span>{item.price}</span>
               </td>
               <td className='delete-item'>
-                <AiFillDelete size={25} />
+                <AiFillDelete size={25} color='red' onClick={()=>deletefromMenu(item.id)}/>
               </td>
             </tr>
           </table>

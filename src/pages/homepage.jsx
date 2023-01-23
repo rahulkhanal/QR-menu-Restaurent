@@ -7,20 +7,26 @@ import '../index.css'
 import Home from '../components/home';
 import { cartContext } from '../components/store';
 import { Link } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
 const categories = [...new Set(foodDta.map((item) => item.type))]
 const HomePage = ({ cart, setCart }) => {
+  const data = useSelector((state) => state.cart);
   return (
     <div className='main'>
       <div className='logoMobile'>
         <img src={logo} alt="Pie Onion" />
       </div>
-      <div className='cart-navigation'>
-        {/* <div>9</div> */}
-        <Link to="/cart">
-          <img src='./images/cartIcon.png' width="70px"/>
-        </Link>
-      </div>
+      {data.CartTotalQuantity &&
+        <>
+          <div className='cart-navigation'>
+            <div>{data.CartTotalQuantity}</div>
+            <Link to="/cart">
+              <img src='./images/cartIcon.png' width="70px" />
+            </Link>
+          </div>
+        </>
+      }
       <hr />
       <OfferSlider />
       <br />

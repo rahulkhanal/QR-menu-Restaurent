@@ -7,10 +7,12 @@ import store from './store'
 
 
 const Home = ({ categories }) => {
-    const [dispatchItem, setDispatchItem] = useState();
+    const [buttonClick, setButtonClick] = useState(false);
+
     const dispatch = useDispatch();
     const abc = (item) =>{
         dispatch(addItem(item));
+        setButtonClick(true);
     }
     return (
         <div className='home'>
@@ -33,7 +35,7 @@ const Home = ({ categories }) => {
                                                 </div>
                                                 <div className='productPrices'>
                                                     <span>{item.price}</span>
-                                                    <button onClick={()=>{abc(item)}}><IoIosAddCircle size={24}/></button>
+                                                    <button onClick={()=>{abc(item)}}>{buttonClick? "Added" : <IoIosAddCircle size={24}/>}</button>
                                                 </div>
                                             </div>
                                         </div>

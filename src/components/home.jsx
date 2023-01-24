@@ -3,8 +3,6 @@ import foodDta from './data'
 import {IoIosAddCircle, IoIosAddCircleOutline} from 'react-icons/io'
 import { useSelector, useDispatch } from 'react-redux'
 import { addItem } from './cartSlice'
-import store from './store'
-
 
 const Home = ({ categories }) => {
     const [buttonClick, setButtonClick] = useState(false);

@@ -15,7 +15,7 @@
   width: 30%;
   margin-top: 17vh;
 }
-@media screen and (min-width: 811px){
+@media screen and (min-width: 812px){
   .max-size{
     width: 70%;
     margin: 10vh auto;
@@ -34,6 +34,6 @@
 
 @media screen and (max-width: 811px){
   .max-size{
-    display: none;
+    display: none !important;
   }
 }

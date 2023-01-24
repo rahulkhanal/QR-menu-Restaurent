@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom';
 
 let ru = "रु";
 const Offer = () => {
@@ -46,9 +47,11 @@ const Offer = () => {
     <div className='offer-slider'>
         {food.map((OfferItem, Index)=>{
             return(
+                <Link to={`offer`}>
                 <div key={Index} className="offer-images">
                 <img src={OfferItem.image} />
                 </div>
+                </Link>
             )
         })}
     </div>

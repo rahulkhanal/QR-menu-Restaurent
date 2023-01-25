@@ -1,25 +1,34 @@
 import React, { createContext, useContext, useRef, useState } from 'react'
 import foodDta from './data'
-import {IoIosAddCircle, IoIosAddCircleOutline} from 'react-icons/io'
+import { IoIosAddCircle, IoIosAddCircleOutline } from 'react-icons/io'
 import { useSelector, useDispatch } from 'react-redux'
 import { addItem } from './cartSlice'
 
 const Home = ({ categories }) => {
     const [buttonClick, setButtonClick] = useState(false);
-
+    const [getData,setGetData]=useState([]);
+    const state = useSelector((state)=>state.cart)
     const dispatch = useDispatch();
-    const abc = (item) =>{
-        dispatch(addItem(item));
-        setButtonClick(true);
+    const abc = (e,item) => {
+        e.preventDefault();
+        dispatch(addItem(item))
+        console.log(state.cartItem.includes(item.id))
     }
+    // console.log(getData)
+
+if(getData){
+    if(!state.cartItem.includes(getData.id)){
+       dispatch(addItem(getData)) && console.log("Succcess")
+    }
+}
     return (
         <div className='home'>
             <h1><u>Our Menu</u></h1>
             <br />
-            {categories.map((category) => {
+            {categories.map((category, index) => {
                 return (
-                    <div id={category} key={category.type}>
-                        <h4  style={{ "textAlign": "left"}}>{category}</h4>
+                    <div id={category} key={index}>
+                        <h4 style={{ "textAlign": "left" }}>{category}</h4>
                         <br />
                         <div className='align-cards'>
                             {foodDta.map((item) => {
@@ -33,7 +42,7 @@ const Home = ({ categories }) => {
                                                 </div>
                                                 <div className='productPrices'>
                                                     <span>{item.price}</span>
-                                                    <button onClick={()=>{abc(item)}}>{buttonClick? "Added" : <IoIosAddCircle size={24}/>}</button>
+                                                    <button disabled={buttonClick} onClick={() => setGetData(item) }>{buttonClick ? "added" : <IoIosAddCircle size={24} />}</button>
                                                 </div>
                                             </div>
                                         </div>

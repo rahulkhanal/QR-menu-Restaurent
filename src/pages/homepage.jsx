@@ -28,7 +28,7 @@ const HomePage = ({ cart, setCart }) => {
         </>
       }
       <hr />
-      <OfferSlider />
+      {/* <OfferSlider /> */}
       <br />
 
       <Nav categories={categories} />

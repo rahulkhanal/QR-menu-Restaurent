@@ -1,5 +1,8 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { addOffer } from './offerSlice';
+
 
 let ru = "रु";
 const Offer = () => {
@@ -40,24 +43,31 @@ const Offer = () => {
             newPrice: `${ru}570`
         },
     ]
-  return (
-  <>
-    <h4 style={{"textAlign":"left"}}>Today Offer</h4>
-    <div className='offer'>
-    <div className='offer-slider'>
-        {food.map((OfferItem, Index)=>{
-            return(
-                <Link to={`offer`}>
-                <div key={Index} className="offer-images">
-                <img src={OfferItem.image} />
+    const dispatch = useDispatch();
+    const sendOfferdata=((OfferData)=>{
+        dispatch(addOffer(OfferData));
+    })
+    return (
+        <>
+            <h4 style={{ "textAlign": "left" }}>Today Offer</h4>
+            <div className='offer'>
+                <div className='offer-slider'>
+                    {food.map((OfferItem, Index) => {
+                        // dispatch(addOffer(OfferItem));
+                        return (
+                            <div key={Index} onClick={sendOfferdata(OfferItem)}>
+                            <Link to={`offer`}>
+                                <div key={Index} className="offer-images">
+                                    <img src={OfferItem.image} />
+                                </div>
+                            </Link>
+                            </div>
+                        )
+                    })}
                 </div>
-                </Link>
-            )
-        })}
-    </div>
-    </div>
-  </>
-  )
+            </div>
+        </>
+    )
 }
 
 export default Offer

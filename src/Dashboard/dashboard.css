@@ -1,3 +1,338 @@
-body{
-    /* color: black; */
+.dashboard {
+    background-color: #2D3A47;
+    color: white;
+    width: 95%;
+    margin: auto;
+    text-align: left;
+    border-radius: 15px;
+    box-shadow: 0 0 10px 1px white;
+}
+.additem{
+    background-color: #16191d;
+    height: 50vh;
+}
+.dashboard label {
+    font-size: large;
+}
+
+form {
+    width: 95%;
+    padding: 5px;
+    margin: auto;
+}
+
+form label {
+    font-size: 1rem;
+}
+
+.dashboard form input{
+    width: 100%;
+    font-size: large;
+    border-radius: 3px;
+    border: none;
+    outline: 2px solid rgb(185, 182, 182);
+}
+.dashboard form select{
+    width: 100%;
+    font-size: large;
+    border-radius: 3px;
+    border: none;
+    padding: 3.5px;
+    outline: 2px solid rgb(185, 182, 182);
+}
+.dashboard form select:focus{
+    outline: 2px solid #2D3A47;
+}
+.dashboard form input:focus {
+    outline: 2px solid #2D3A47;
+    /* border: 2px solid #2196F3; */
+    border-radius: 3px;
+}
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+input:checked+.slider {
+    background-color: white;
+}
+
+input:focus+.slider {
+    box-shadow: 0 0 2px #2D3A47;
+}
+
+input:checked+.slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+}
+
+.slider.round {
+    border-radius: 34px;
+}
+
+.slider.round:before {
+    border-radius: 50%;
+    background-color: #16191d;
+}
+
+.offerOnOff {
+    /* width: 90%; */
+    /* margin: auto; */
+    display: flex;
+    justify-content: space-between;
+    /* background-color: rgb(87, 81, 81); */
+
+}
+
+.dashboard-btn {
+    display: flex;
+    justify-content: end;
+}
+
+.dashboard-btn button {
+    padding: 7px 20px;
+    font-size: small;
+    color: white;
+    border: none;
+    border-radius: 7px;
+}
+
+.danger-btn {
+    background-color: rgb(255, 0, 0);
+}
+
+.danger-btn:hover {
+    background-color: rgb(139, 19, 19);
+}
+
+.green-btn {
+    background-color: green;
+    margin-left: 1rem;
+}
+
+.green-btn:hover {
+    background-color: rgb(17, 70, 17);
+    margin-left: 1rem;
+}
+
+
+/******************************* lOGIN *************************************/
+.loginform {
+    background-color: aliceblue;
+    color: black;
+    width: 450px;
+    margin: 10vh auto;
+    padding: 10px;
+    border-radius: 7px;
+}
+
+@media screen and (max-width: 811px) {
+    .loginform {
+        width: 300px;
+    }
+    .loginform input{
+        width: 260px;
+    }
+    .login-container button{
+        width: 260px;
+    }
+    .login-container span{
+        display: flex;
+    }
+}
+
+.loginform input {
+    font-size: 1.2rem;
+}
+
+.login-container {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    width: 400px;
+    margin: auto;
+}
+
+.login-container button {
+    border: none;
+    padding: 7px;
+}
+
+.login-container label {
+    font-size: medium;
+
+}
+
+
+/* DAshboaard Navigation */
+.dashboard{
+    padding-top: 1rem;
+    /* color: aliceblue !important; */
+}
+.dashboardNav nav {
+    /* color: white !important; */
+    padding: 1rem;
+    background-color: #2D3A47;
+    display: flex;
+    justify-content: space-around;
+}
+.dashboardNav nav a{
+    color: aliceblue;
+}
+.dashboardNav nav div {
+    width: 45%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.imgcontainer img {
+    width: 7rem;
+    border-radius: 50%;
+}
+
+.login-container input {
+    margin-bottom: 1rem;
+}
+
+
+
+/************************* Added Item ****************************/
+.search-in-dashboard{
+    display: flex;
+    justify-content: end;
+    margin: 5px 10px;
+}
+.search-in-dashboard input{
+    border-radius: 4px;
+    border: 1px solid #2D3A47;
+}
+.search-in-dashboard input:focus{
+    outline: 1px solid #16191d;
+}
+.search-in-dashboard button{
+    border: none;
+    background-color: #2D3A47;
+    color: white;
+    margin-right: 5px;
+    width: 80px;
+    border-radius: 4px;
+}
+.search-in-dashboard button:hover{
+    background-color: #16191d;
+}
+.addedItem{
+    background-color: white;
+    color: black;
+}
+.addedItem button{
+    color: white;
+    display: flex;
+    justify-content: left;
+    border: 1px solid white;
+    border-top: none;
+    border-bottom: none;
+    border-right: none;
+    padding: 4px 10px;
+    display: flex;
+    align-items: center;
+    background-color: #16191d;
+}
+.tableHead th{
+    background-color: #16191d;
+    padding: 5px 0;
+    border-right: 1px solid white;
+    color: white;
+}
+table td{
+    background-color: #2D3A47;
+    color: white;
+}
+.addedItem table td:nth-col(even){
+    border-right: 1px solid green;
+    padding: 5px;
+}
+.tableHead th:first-child{
+    border-left: 1px solid white;
+}
+.addedItem{
+    margin-top: 5px;
+}
+.addedItem td img{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+.addedItem td{
+    padding-top: 10px;
+}
+
+/*************************** Dashboard-setting *************************/
+.Dashboard-setting{
+    height: 100vh;
+    display: flex;
+    border-top: 2px solid white;
+}
+.Dashboard-SettingBar{
+    width: 30%;
+    background-color: #242b31;
+    color: white;
+    text-align: center;
+    /* box-shadow: 2px 0 22px 10px white; */
+}
+.Setting-container{
+    background-color: #2D3A47;
+    /* color: #2D3A47; */
+}
+.Dashboard-SettingBar button:first-child{
+    margin-top: 4rem;
+}
+.Dashboard-SettingBar button{
+    color: #16191d;
+    width: 80%;
+    padding: 7px 0 7px 5px;
+    margin-top: 10px;
+    border: none;
+    background-color: white;
+    border-radius: 7px;
+    text-align: left;
+    /* display: flex;
+    align-items: center; */
+}
+.Dashboard-SettingBar button:hover{
+    background-color: #2D3A47;
+    box-shadow: 0 0 4px white;
+    color: white;
 }

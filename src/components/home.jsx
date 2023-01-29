@@ -7,20 +7,27 @@ import { addItem } from './cartSlice'
 const Home = ({ categories }) => {
     const [buttonClick, setButtonClick] = useState(false);
     const [getData,setGetData]=useState([]);
-    const state = useSelector((state)=>state.cart)
+    const data = useSelector((state)=>state.cart)
     const dispatch = useDispatch();
-    const abc = (e,item) => {
-        e.preventDefault();
-        dispatch(addItem(item))
-        console.log(state.cartItem.includes(item.id))
+    const abc = (item) => {
+        dispatch(addItem(item));
+        if(data.cartItem.length >= 1){
+            data.cartItem.map((mapItem)=>{
+                if(item.id === mapItem.id){
+                    return setButtonClick(true);
+                }
+            })
+        }
+        
+        // console.log(state.cartItem.includes(item.id))
     }
     // console.log(getData)
 
-if(getData){
-    if(!state.cartItem.includes(getData.id)){
-       dispatch(addItem(getData)) && console.log("Succcess")
-    }
-}
+// if(getData){
+//     if(!state.cartItem.includes(getData.id)){
+//        dispatch(addItem(getData)) && console.log("Succcess")
+//     }
+// }
     return (
         <div className='home'>
             <h1><u>Our Menu</u></h1>
@@ -42,7 +49,7 @@ if(getData){
                                                 </div>
                                                 <div className='productPrices'>
                                                     <span>{item.price}</span>
-                                                    <button disabled={buttonClick} onClick={() => setGetData(item) }>{buttonClick ? "added" : <IoIosAddCircle size={24} />}</button>
+                                                    <button disabled={buttonClick} onClick={() => abc(item) }>{buttonClick ? "added" : <IoIosAddCircle size={24} />}</button>
                                                 </div>
                                             </div>
                                         </div>

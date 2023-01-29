@@ -17,9 +17,11 @@
 }
 @media screen and (min-width: 812px){
   .max-size{
+    display: block;
     width: 70%;
-    margin: 10vh auto;
+    margin: 2vh auto;
     text-align: center;
+    color: #000;
   }
   .max-size img{
     width: 20rem;
@@ -28,7 +30,8 @@
     display: none;
   }
   body{
-    background-color: rgba(3, 248, 23, 0.5);
+    /* background-color: rgba(3, 248, 23, 0.5); */
+    background-color: white;
   }
   .cart-menu{
     display: none;

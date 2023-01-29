@@ -35,8 +35,8 @@ const cartSlice = createSlice({
             }else{
                 const tempProduct = {...action.payload, cartQuantity:1}
                 state.cartItem.push(tempProduct);
-                console.log(state.cartItem)
                 state.CartTotalQuantity += 1;
+                // console.log(state.cartItem.id);
             }
         },
         deleteItem(state, action) {

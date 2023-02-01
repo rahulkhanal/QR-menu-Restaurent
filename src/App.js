@@ -12,6 +12,12 @@ import Login from './Dashboard/Pages/login';
 import Additem from './Dashboard/Pages/additem';
 import AddedItem from './Dashboard/Pages/AddedItem';
 import AdminSettings from './Dashboard/Pages/setting';
+import CatagoryMange from './Dashboard/Pages/catagoryMange';
+import SettingTheme from './Dashboard/Pages/settingTheme';
+import AdminManageAccount from './Dashboard/Pages/adminaccount';
+import SettingImg from './Dashboard/Pages/settingimg';
+import Policies from './Dashboard/Pages/policies';
+import AccountSetting from './Dashboard/Pages/accountSetting';
 function App() {
   return (
     <>
@@ -24,7 +30,12 @@ function App() {
           <Route path="/admin" element={<Login />} />
           <Route path="/admin/dashboard" element={<Dashboard />} />
           <Route path="/admin/addeditem" element={<AddedItem />} />
-          <Route path="/admin/settings" element={<AdminSettings />} />
+          <Route path="/admin/setting" element={<SettingImg />} />
+          <Route path="/admin/settings/manage-category" element={<CatagoryMange />} />
+          <Route path="/admin/settings/manage-theme" element={<SettingTheme />} />
+          <Route path="/admin/settings/manage-account" element={<AdminManageAccount />} />
+          <Route path="/admin/settings/account-setting" element={<AccountSetting />} />
+          <Route path="/admin/settings/policies" element={<Policies />} />
           <Route path="*" element={<PagenotFound />} />
         </Routes>
       </BrowserRouter>

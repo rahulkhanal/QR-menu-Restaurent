@@ -10,7 +10,7 @@ import { BiSearchAlt } from 'react-icons/bi'
 const AddedItem = () => {
   const [addedList, setAddedList] = useState({})
   return (
-    <div>
+    <div style={{"marginTop":"4rem"}}>
       <DashBoardNav />
       <div className="search-in-dashboard">
         <button><BiSearchAlt size={20} />Filter</button>
@@ -29,7 +29,6 @@ const AddedItem = () => {
             </th>
           </tr>
           {foodDta.map((item, index) => {
-            console.log(item)
             return (
               <tr key={index}>
                 <td>{index + 1}</td>
@@ -47,8 +46,9 @@ const AddedItem = () => {
             )
           })}
         </table>
-        <button>
-          Next Page<GrNext size={20} />
+        <button className='nextPage-btn'>
+          <span>Next Page</span>
+          <GrNext size={20}/>
         </button>
 
       </div>

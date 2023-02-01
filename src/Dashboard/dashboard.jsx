@@ -9,7 +9,9 @@ const Dashboard = () => {
 
   return (
     <div>
-      <DashBoardNav />
+      <div className="dashboardNav">
+        <DashBoardNav />
+      </div>
 
     </div>
   )

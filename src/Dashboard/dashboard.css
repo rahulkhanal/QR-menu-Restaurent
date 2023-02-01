@@ -7,32 +7,36 @@
     border-radius: 15px;
     box-shadow: 0 0 10px 1px white;
 }
-.additem{
+
+.additem {
     background-color: #16191d;
     height: 50vh;
+    margin-top: 3rem;
 }
+
 .dashboard label {
     font-size: large;
 }
 
-form {
+.dashboard form {
     width: 95%;
     padding: 5px;
     margin: auto;
 }
 
-form label {
+.dashboard form label {
     font-size: 1rem;
 }
 
-.dashboard form input{
+.dashboard form input {
     width: 100%;
     font-size: large;
     border-radius: 3px;
     border: none;
     outline: 2px solid rgb(185, 182, 182);
 }
-.dashboard form select{
+
+.dashboard form select {
     width: 100%;
     font-size: large;
     border-radius: 3px;
@@ -40,12 +44,13 @@ form label {
     padding: 3.5px;
     outline: 2px solid rgb(185, 182, 182);
 }
-.dashboard form select:focus{
+
+.dashboard form select:focus {
     outline: 2px solid #2D3A47;
 }
+
 .dashboard form input:focus {
     outline: 2px solid #2D3A47;
-    /* border: 2px solid #2196F3; */
     border-radius: 3px;
 }
 
@@ -85,6 +90,7 @@ form label {
     -webkit-transition: .4s;
     transition: .4s;
 }
+
 input:checked+.slider {
     background-color: white;
 }
@@ -163,13 +169,16 @@ input:checked+.slider:before {
     .loginform {
         width: 300px;
     }
-    .loginform input{
+
+    .loginform input {
         width: 260px;
     }
-    .login-container button{
+
+    .login-container button {
         width: 260px;
     }
-    .login-container span{
+
+    .login-container span {
         display: flex;
     }
 }
@@ -197,26 +206,81 @@ input:checked+.slider:before {
 }
 
 
-/* DAshboaard Navigation */
-.dashboard{
+/************************************ Dashboaard Navigation ***********************************/
+.dashboard {
     padding-top: 1rem;
-    /* color: aliceblue !important; */
 }
+
 .dashboardNav nav {
-    /* color: white !important; */
     padding: 1rem;
     background-color: #2D3A47;
     display: flex;
     justify-content: space-around;
 }
-.dashboardNav nav a{
+
+.dashboardNav nav a {
     color: aliceblue;
 }
-.dashboardNav nav div {
-    width: 45%;
+
+.nav-elements {
+    width: 55%;
     display: flex;
     justify-content: space-between;
 }
+
+@media screen and (max-width: 985px) {
+    .nav-elements {
+        width: 70%;
+    }
+}
+
+.dashboard-NavIcon {
+    display: none;
+    position: absolute;
+    right: 10px;
+    top: 10px;
+}
+
+@media screen and (max-width: 790px) {
+    .nav-elements {
+        height: 0;
+        overflow-y: hidden;
+        transition: all 0.3s ease;
+    }
+
+    .nav-elements a {
+        margin-top: 10px;
+    }
+
+    .dashboard-word {
+        display: flex;
+        justify-content: flex-start;
+    }
+
+    .dashboard-NavIcon {
+        display: block;
+    }
+
+    .dashboardNav nav {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .nav-elementsactive {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        margin: auto;
+        margin-top: 1rem;
+        transition: all 0.3s ease;
+        background-color: #2c353d;
+    }
+
+    .nav-elementsactive a {
+        margin-top: 10px;
+    }
+}
+
 
 .imgcontainer img {
     width: 7rem;
@@ -230,19 +294,22 @@ input:checked+.slider:before {
 
 
 /************************* Added Item ****************************/
-.search-in-dashboard{
+.search-in-dashboard {
     display: flex;
     justify-content: end;
     margin: 5px 10px;
 }
-.search-in-dashboard input{
+
+.search-in-dashboard input {
     border-radius: 4px;
     border: 1px solid #2D3A47;
 }
-.search-in-dashboard input:focus{
+
+.search-in-dashboard input:focus {
     outline: 1px solid #16191d;
 }
-.search-in-dashboard button{
+
+.search-in-dashboard button {
     border: none;
     background-color: #2D3A47;
     color: white;
@@ -250,76 +317,127 @@ input:checked+.slider:before {
     width: 80px;
     border-radius: 4px;
 }
-.search-in-dashboard button:hover{
+
+.search-in-dashboard button:hover {
     background-color: #16191d;
 }
-.addedItem{
+
+.addedItem {
     background-color: white;
     color: black;
 }
-.addedItem button{
+
+.nextPage-btn {
     color: white;
     display: flex;
     justify-content: left;
     border: 1px solid white;
-    border-top: none;
-    border-bottom: none;
-    border-right: none;
-    padding: 4px 10px;
+    padding: 7px 10px;
     display: flex;
     align-items: center;
-    background-color: #16191d;
+    background-color: green;
+    margin-top: 5px;
+    margin-bottom: 3rem;
+    border-radius: 7px;
+    margin-left: 5px;
 }
-.tableHead th{
+
+.nextPage-btn:hover {
+    background-color: rgb(8, 90, 8);
+}
+
+.tableHead th {
     background-color: #16191d;
     padding: 5px 0;
     border-right: 1px solid white;
     color: white;
 }
-table td{
-    background-color: #2D3A47;
+
+table td {
+    background-color: #2c353d;
     color: white;
 }
-.addedItem table td:nth-col(even){
+
+.addedItem table td:nth-col(even) {
     border-right: 1px solid green;
     padding: 5px;
 }
-.tableHead th:first-child{
+
+.tableHead th:first-child {
     border-left: 1px solid white;
 }
-.addedItem{
+
+.addedItem {
     margin-top: 5px;
 }
-.addedItem td img{
+
+.addedItem td img {
     width: 50px;
     height: 50px;
     border-radius: 50%;
 }
-.addedItem td{
+
+.addedItem td {
     padding-top: 10px;
 }
 
-/*************************** Dashboard-setting *************************/
-.Dashboard-setting{
+.dashboardNav {
+    width: 100%;
+    position: fixed;
+    top: 0;
+    z-index: 1111111;
+}
+
+/*************************** Vertical-Navbar *************************/
+.Dashboard-SettingBar {
+    background-color: #16191d;
     height: 100vh;
-    display: flex;
-    border-top: 2px solid white;
+    width: 250px;
+    margin-top: 3.5rem;
+    padding-top: 1.7rem;
 }
-.Dashboard-SettingBar{
-    width: 30%;
-    background-color: #242b31;
-    color: white;
-    text-align: center;
-    /* box-shadow: 2px 0 22px 10px white; */
+
+.setting-menuIcon,
+.setting-menuIcon-Hide {
+    display: none;
 }
-.Setting-container{
-    background-color: #2D3A47;
-    /* color: #2D3A47; */
+
+@media screen and (max-width: 770px) {
+    .Dashboard-SettingBar {
+        width: 220px;
+    }
 }
-.Dashboard-SettingBar button:first-child{
-    margin-top: 4rem;
+
+@media screen and (max-width: 540px) {
+    .setting-menuIcon {
+        display: block;
+        position: fixed;
+        left: 190px;
+        top: 60px;
+    }
+
+    .setting-menuIcon-Hide {
+        display: block;
+        position: absolute;
+        left: 190px;
+        top: 0px;
+    }
+
+    .Dashboard-SettingBar {
+        width: 220px;
+        /* transition: all 0.3s ease; */
+    }
+
+    .Dashboard-SettingBar-hide {
+        transform: translateX(-190px);
+        /* transition: all 0.3s ease; */
+        position: fixed;
+        z-index: -1000;
+    }
 }
-.Dashboard-SettingBar button{
+
+
+.Dashboard-SettingBar button {
     color: #16191d;
     width: 80%;
     padding: 7px 0 7px 5px;
@@ -328,11 +446,67 @@ table td{
     background-color: white;
     border-radius: 7px;
     text-align: left;
-    /* display: flex;
-    align-items: center; */
 }
-.Dashboard-SettingBar button:hover{
+
+@media screen and (max-width: 540px) {
+    .Dashboard-SettingBar button {
+        margin-right: 20px;
+    }
+}
+
+.Dashboard-SettingBar button:hover {
     background-color: #2D3A47;
     box-shadow: 0 0 4px white;
     color: white;
 }
+
+.dash-container {
+    display: flex;
+    background-color: aqua;
+}
+
+.dash {
+    position: absolute;
+    margin-left: 250px;
+    top: 50px;
+    z-index: -100;
+    background-color: #2c353d;
+    width: calc(100% - 250px);
+    height: 100vh;
+    text-align: left;
+    padding: 2rem 3rem;
+}
+
+.verticalMenu {
+    position: absolute;
+}
+
+@media screen and (max-width: 770px) {
+    .dash {
+        margin-left: 220px;
+        width: calc(100% - 220px);
+    }
+}
+
+@media screen and (max-width: 540px) {
+    .dash {
+        margin-left: 30px;
+        width: calc(100% - 30px);
+    }
+}
+
+.rotateSetting-icon{
+    position: absolute;
+    top: 15vh;
+    right: calc(35%);
+    color: rgb(175, 172, 172);
+    animation: rotation 5s infinite linear;
+}
+@keyframes rotation {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(359deg);
+    }
+  }

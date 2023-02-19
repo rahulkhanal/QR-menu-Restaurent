@@ -5,29 +5,15 @@ import { useSelector, useDispatch } from 'react-redux'
 import { addItem } from './cartSlice'
 
 const Home = ({ categories }) => {
-    const [buttonClick, setButtonClick] = useState(false);
-    const [getData,setGetData]=useState([]);
-    const data = useSelector((state)=>state.cart)
-    const dispatch = useDispatch();
-    const abc = (item) => {
-        dispatch(addItem(item));
-        if(data.cartItem.length >= 1){
-            data.cartItem.map((mapItem)=>{
-                if(item.id === mapItem.id){
-                    return setButtonClick(true);
-                }
-            })
-        }
-        
-        // console.log(state.cartItem.includes(item.id))
-    }
-    // console.log(getData)
+    const [disabledButtons, setDisabledButtons] = useState({});
+    const data = useSelector((state) => state.cart)
 
-// if(getData){
-//     if(!state.cartItem.includes(getData.id)){
-//        dispatch(addItem(getData)) && console.log("Succcess")
-//     }
-// }
+    const dispatch = useDispatch();
+    function func(e, item) {
+        e.preventDefault();
+        setDisabledButtons(prevState => ({ ...prevState, [item.id]: true }));
+        dispatch(addItem(item));
+    }
     return (
         <div className='home'>
             <h1><u>Our Menu</u></h1>
@@ -49,7 +35,10 @@ const Home = ({ categories }) => {
                                                 </div>
                                                 <div className='productPrices'>
                                                     <span>{item.price}</span>
-                                                    <button disabled={buttonClick} onClick={() => abc(item) }>{buttonClick ? "added" : <IoIosAddCircle size={24} />}</button>
+                                                    <button onClick={(e) => func(e, item)} disabled={disabledButtons[item.id]}>
+                                                        {disabledButtons[item.id] ? "Added !" : <IoIosAddCircle size={24} />}
+                                                    </button>
+                                                    {/* <button disabled={setButtonClick[item.id]} onClick={(e) => abc(e,item) }>{setButtonClick[item.id] ? "added" : <IoIosAddCircle size={24} />}</button> */}
                                                 </div>
                                             </div>
                                         </div>

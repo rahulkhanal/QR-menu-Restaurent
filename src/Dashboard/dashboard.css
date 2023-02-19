@@ -353,7 +353,7 @@ input:checked+.slider:before {
     color: white;
 }
 
-table td {
+.addedItem table td {
     background-color: #2c353d;
     color: white;
 }

@@ -8,10 +8,10 @@ import { IoIosAddCircle } from 'react-icons/io'
 import { deleteItem } from '../components/cartSlice';
 import tableQty from '../components/tableQty';
 import { TiDelete } from 'react-icons/ti'
-// import { addItem } from '../components/cartSlice';
 
 const CartPage = () => {
   const data = useSelector((state) => state.cart);
+  console.log(data)
   const dispatch = useDispatch();
   console.log(data)
   const [showTable, setShowTable] = useState(false);
@@ -20,26 +20,26 @@ const CartPage = () => {
   function handleOrder(e) {
     e.preventDefault();
     if (data.cartItem.length == 0) {
-      alert("What to order Fool  😠 केही भएपो अर्डर गरने यार !!!")
+      alert("Please Select Something")
     }
     else {
       setShowTable(!showTable);
     }
   }
-  function handlePlus() {
-    setQty(qty + 1)
+  const [temp, setTemp] = useState({});
+  function handlePlus(id) {
+    setQty(qty+1);
+    // setQty(qty + 1)
   }
   function handleMinus() {
-    // abc = abc+1;
     setQty(qty - 1)
-    if (qty < 1) {
-      setQty(1);
+    if (qty == 0) {
+      setQty(0);
     }
   }
   function deletefromMenu(id) {
     dispatch(deleteItem(id));
     setShowTable(false);
-    // data.CartTotalQuantity=0;
   }
 
   return (
@@ -52,18 +52,17 @@ const CartPage = () => {
         <h2 className='order-title'>Your Order</h2>
         <hr />
         {data.cartItem.map((item) => {
-          let qtty = item.cartQuantity;
-          // setQty(qtty)
+          let qtty = item.cartQuantity; 
           return (
-            <table>
+            <table className='cart-table'>
               <tr id={item.id} className='cart-bill'>
-                <td className='product'>
+                <td className='product' style={{ "width": "150px" }}>
                   <img src={item.image} alt={item.Food} />
                   <h6>{item.Food}</h6>
                 </td>
                 <td className='Qty'>
-                  <p>{`Qty: ${qty}`}</p>
-                  < IoIosAddCircle size={25} color='rgb(197, 197, 7)' onClick={() => handlePlus(qty)} />
+                  <p>Qty{qty}</p>
+                  < IoIosAddCircle size={25} color='rgb(197, 197, 7)' onClick={() => handlePlus(item.id)} />
                   < AiFillMinusCircle size={25} color='rgb(197, 197, 7)' onClick={() => handleMinus(qty)} />
                 </td>
                 <td className='price'>
@@ -81,7 +80,7 @@ const CartPage = () => {
         <hr />
         {
           showTable &&
-          <div className={showTable ? 'showTableX showTableY' : 'showTableX'}>
+          <div className='showTableX'>
             <form onSubmit={() => alert('lets welcome backend')}>
               <TiDelete size={32} color='#bb7b38' className='tidelete' onClick={() => setShowTable(!showTable)} />
               <label for="table">Enter Your table Number:</label>

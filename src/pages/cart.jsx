@@ -26,7 +26,7 @@ const CartPage = () => {
   function handlePlus(id) {
     dispatch(AddcartQuantity(id))
   }
-  
+
   function handleMinus(id) {
     dispatch(RemovecartQuantity(id))
   }
@@ -68,9 +68,14 @@ const CartPage = () => {
             </table>
           )
         })}
-        <div className='total-qty'></div>
-        <button onClick={(e) => handleOrder(e)}>Order Here</button>
+        {data.CartTotalQuantity > 0 &&
+          <div className='total-detail'>
+            <span>Total Qty: <p>{data.CartTotalQuantity}</p></span>
+            <span>Total Amt: <p>{data.cartTotalAmount}</p></span>
+          </div>
+        }
         <hr />
+        <button onClick={(e) => handleOrder(e)}>Order Here</button>
         {
           showTable &&
           <div className='showTableX'>

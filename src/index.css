@@ -278,3 +278,21 @@ code {
   top: 5px;
   right: 5px;
 }
+.total-detail{
+  margin-left: 1rem;
+  margin-top: 1rem;
+  border-radius: 7px;
+  text-align: start;
+  background-color: white;
+  color: green;
+  padding: 7px;
+  width: 150px;
+}
+.total-detail span{
+  display: flex;
+  justify-content: space-between;
+  line-height: 10px;
+}
+.total-detail span p{
+  color: red;
+}

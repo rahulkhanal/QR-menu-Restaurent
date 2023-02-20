@@ -5,98 +5,98 @@ const foodDta = [
         Food: "Chicken Kati Roll",
         type: "Kati Roll",
         image: "/images/Chicken-Kathi-Roll.jpg",
-        price: `${ru} 190`
+        price: 190
     },
     {
         id: "2",
         Food: "Egg Kati Roll",
         type: "Kati Roll",
         image: "/images/Egg-Kati-Roll.jpg",
-        price: `${ru} 180`
+        price: 180
     },
     {
         id: "3",
         Food: "Paneer Kati Roll",
         type: "Kati Roll",
         image: "/images/Paneer-kathi-Roll.jpg",
-        price: `${ru} 200`
+        price: 200
     },
     {
         id: "4",
         Food: "Chicken Burger",
         type: "Burger",
         image: "/images/chickenburger.webp",
-        price: `${ru} 430`
+        price: 430
     },
     {
         id: "5",
         Food: "Crispy Chicken Burger",
         type: "Burger",
         image: "/images/crispyburger.jpg",
-        price: `${ru} 500`
+        price: 500
     },
     {
         id: "6",
         Food: "Double Burger",
         type: "Burger",
         image: "/images/doubleburger.jpg",
-        price: `${ru} 700`
+        price: 700
     },
     {
         id: "7",
         Food: "Chicken pizza",
         type: "Pizza",
         image: "/images/pizza.gif",
-        price: `${ru} 530`
+        price: 530
     },
     {
         id: "8",
         Food: "Fry Noodle",
         type: "Noodle",
         image: "/images/frynoodle.jpg",
-        price: `${ru} 200`
+        price: 200
     },
     {
         id: "9",
         Food: "Noodle Soup",
         type: "Noodle",
         image: "/images/noodlesoup.webp",
-        price: `${ru} 170`
+        price: 170
     },
     {
         id: "10",
         Food: "Chicken Mo:MO",
         type: "Momo",
         image: "/images/chickwnmomo.webp",
-        price: `${ru} 190`
+        price: 190
     },
     {
         id: 11,
         Food: "Jhol Mo:MO",
         type: "Momo",
         image: "/images/jholmomo.jpg",
-        price: `${ru} 210`
+        price: 210
     },
     {
         id: "12",
         Food: "Tuborg Beer",
         type: "Drinks",
         image: "/images/tuborg.jpg",
-        price: `${ru} 450`
+        price: 450
     },
     {
         id: "13",
         Food: "CocaCola",
         type: "Drinks",
         image: "/images/coke.png",
-        price: `${ru} 140`
+        price: 140
     },
     {
         id: "14",
         Food: "Frroty",
         type: "Drinks",
         image: "/images/frooty.webp",
-        price: `${ru} 90`
+        price: 90
     },
 ]
 

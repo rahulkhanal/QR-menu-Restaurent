@@ -5,17 +5,14 @@ import { Link } from 'react-router-dom';
 import { IoChevronBackCircleSharp } from 'react-icons/io5'
 import { AiFillDelete, AiFillMinusCircle } from 'react-icons/ai'
 import { IoIosAddCircle } from 'react-icons/io'
-import { deleteItem } from '../components/cartSlice';
+import { AddcartQuantity, addItem, deleteItem, RemovecartQuantity } from '../components/cartSlice';
 import tableQty from '../components/tableQty';
 import { TiDelete } from 'react-icons/ti'
 
 const CartPage = () => {
   const data = useSelector((state) => state.cart);
-  console.log(data)
   const dispatch = useDispatch();
-  console.log(data)
   const [showTable, setShowTable] = useState(false);
-  const [qty, setQty] = useState(1)
 
   function handleOrder(e) {
     e.preventDefault();
@@ -26,16 +23,12 @@ const CartPage = () => {
       setShowTable(!showTable);
     }
   }
-  const [temp, setTemp] = useState({});
   function handlePlus(id) {
-    setQty(qty+1);
-    // setQty(qty + 1)
+    dispatch(AddcartQuantity(id))
   }
-  function handleMinus() {
-    setQty(qty - 1)
-    if (qty == 0) {
-      setQty(0);
-    }
+  
+  function handleMinus(id) {
+    dispatch(RemovecartQuantity(id))
   }
   function deletefromMenu(id) {
     dispatch(deleteItem(id));
@@ -52,7 +45,7 @@ const CartPage = () => {
         <h2 className='order-title'>Your Order</h2>
         <hr />
         {data.cartItem.map((item) => {
-          let qtty = item.cartQuantity; 
+          let qtty = item.cartQuantity;
           return (
             <table className='cart-table'>
               <tr id={item.id} className='cart-bill'>
@@ -61,12 +54,12 @@ const CartPage = () => {
                   <h6>{item.Food}</h6>
                 </td>
                 <td className='Qty'>
-                  <p>Qty{qty}</p>
+                  <p>Qty: {item.cartQuantity}</p>
                   < IoIosAddCircle size={25} color='rgb(197, 197, 7)' onClick={() => handlePlus(item.id)} />
-                  < AiFillMinusCircle size={25} color='rgb(197, 197, 7)' onClick={() => handleMinus(qty)} />
+                  < AiFillMinusCircle size={25} color='rgb(197, 197, 7)' onClick={() => handleMinus(item.id)} />
                 </td>
                 <td className='price'>
-                  <span>{item.price}</span>
+                  <span>{`रु ${item.price}`}</span>
                 </td>
                 <td className='delete-item'>
                   <AiFillDelete size={35} color='rgb(240, 97, 97)' onClick={() => deletefromMenu(item.id)} />

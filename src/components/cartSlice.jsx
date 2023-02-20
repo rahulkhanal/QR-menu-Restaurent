@@ -9,34 +9,16 @@ const cartSlice = createSlice({
     name: 'cart',
     initialState,
     reducers: {
-        // addItem(state, action){
-        //     state.push(action.payload);
-        // }
         addItem(state, action) {
-            // const itemIndex = state.cartItem.findIndex((item)=>{
-            //     return item.id === action.payload.id
-            // });
-            // if(itemIndex >= 0){
-            //     state.cartItem[itemIndex].cartQuantity += 1;
-            //     state.CartTotalQuantity += 1;
-            // }else{
-            //     const tempProduct = {...action.payload, cartQuantity:1}
-            //     state.cartItem.push(tempProduct);
-            //     console.log(state.cartItem)
-            //     state.CartTotalQuantity += 1;
-            // }
-
-            const itemIndex = state.cartItem.findIndex((item)=>{
+            const itemIndex = state.cartItem.findIndex((item) => {
                 return item.id === action.payload.id
             });
-            if(itemIndex >= 0){
-                // alert("Item Already Added")
+            if (itemIndex >= 0) {
                 return;
-            }else{
-                const tempProduct = {...action.payload, cartQuantity:1}
+            } else {
+                const tempProduct = { ...action.payload, cartQuantity: 1 }
                 state.cartItem.push(tempProduct);
                 state.CartTotalQuantity += 1;
-                // console.log(state.cartItem.id);
             }
         },
         deleteItem(state, action) {
@@ -45,10 +27,27 @@ const cartSlice = createSlice({
             })
             state.cartItem = nextCartItem;
             state.CartTotalQuantity -= 1;
+        },
+        AddcartQuantity(state, action) {
+            const item = state.cartItem.find((item) => item.id === action.payload);
+            if (item) {
+                item.cartQuantity++;
+            }
+        },
+        RemovecartQuantity(state, action) {
+            const item = state.cartItem.find((item) => item.id === action.payload);
+            if (item) {
+                if(item.cartQuantity <= 1){
+                 item.cartQuantity = 1;
+                }    
+                else{
+                    item.cartQuantity--;
+                }
+            }
         }
     }
 })
 
 
 export default cartSlice.reducer;
-export const { addItem, deleteItem } = cartSlice.actions;
+export const { addItem, deleteItem, AddcartQuantity, RemovecartQuantity } = cartSlice.actions;

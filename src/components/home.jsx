@@ -34,7 +34,7 @@ const Home = ({ categories }) => {
                                                     <span>{item.Food}</span>
                                                 </div>
                                                 <div className='productPrices'>
-                                                    <span>{item.price}</span>
+                                                    <span>{`रु ${item.price}`}</span>
                                                     <button onClick={(e) => func(e, item)} disabled={disabledButtons[item.id]}>
                                                         {disabledButtons[item.id] ? "Added !" : <IoIosAddCircle size={24} />}
                                                     </button>
